@@ -23,12 +23,23 @@ const makeGallery = (images) =>
 gallery.innerHTML = makeGallery(galleryItems);
 
 
-const galleryNew = new SimpleLightbox(".gallery a", {
+let galleryNew = new SimpleLightbox(".gallery a", {
     captionsData: "alt",
     captionDelay: 250,
   });
   
-  galleryNew.addEventListener("click", (event) => {
-    event.preventDefault();
+  galleryNew.on('error.simplelightbox', function (e) {
+     console.log(e);
   });
 
+
+//   let gallery = new SimpleLightbox('.gallery a');
+//   gallery.on('show.simplelightbox', function () {
+//       // do something…
+//   });
+  
+//   gallery.on('error.simplelightbox', function (e) {
+//       console.log(e); // some usefull information
+//   });
+  
+//   /
